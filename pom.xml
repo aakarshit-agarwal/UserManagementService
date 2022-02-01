@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.fitness</groupId>
-	<artifactId>UserManagementService</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>UserManagementService</name>
-	<description>UserManagementService</description>
+	<artifactId>YouFitUserManagementService</artifactId>
+	<version>0.0.1</version>
+	<name>YouFitUserManagementService</name>
+	<description>YouFitUserManagementService</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2021.0.0</spring-cloud.version>
@@ -111,7 +111,7 @@
                 </configuration>
             </plugin>
         </plugins>
-		<finalName>UserManagementService</finalName>
+		<finalName>YouFitUserManagementService</finalName>
 	</build>
 
 </project>
