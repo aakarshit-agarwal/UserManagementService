@@ -1,4 +1,5 @@
 FROM openjdk:17
-EXPOSE 9001
-ADD target/YouFitUserManagementService.jar YouFitUserManagementService.jar
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} YouFitUserManagementService.jar
 ENTRYPOINT ["java", "-jar", "/YouFitUserManagementService.jar"]
+EXPOSE 9001
