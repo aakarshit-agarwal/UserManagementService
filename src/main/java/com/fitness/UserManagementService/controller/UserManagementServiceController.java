@@ -2,7 +2,6 @@ package com.fitness.UserManagementService.controller;
 
 import com.fitness.UserManagementService.entity.User;
 import com.fitness.UserManagementService.exception.InvalidInputException;
-import com.fitness.UserManagementService.helper.ModelEntityConverter;
 import com.fitness.UserManagementService.model.CreateUserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,15 +25,14 @@ public class UserManagementServiceController {
     private UserManagementService userManagementService;
 
     @PostMapping("/")
-    public ResponseEntity<Object> createUser(@RequestBody final CreateUserRequest createUserRequest) {
+    public ResponseEntity<String> createUser(@RequestBody final CreateUserRequest createUserRequest) {
         if(createUserRequest.getEmail().isBlank() && createUserRequest.getPhone().isBlank()) {
             throw new InvalidInputException("Email and phone can not be blank.");
         }
         if(createUserRequest.getUsername().isBlank()) {
             throw new InvalidInputException("Username can not be blank.");
         }
-        return new ResponseEntity<>(userManagementService.createUser(
-                        ModelEntityConverter.convertCreateUserRequestToUser(createUserRequest)), HttpStatus.OK);
+        return new ResponseEntity<>(userManagementService.createUser(createUserRequest), HttpStatus.OK);
     }
 
     @GetMapping("/")
@@ -52,7 +50,7 @@ public class UserManagementServiceController {
     }
 
     @DeleteMapping("/{userId}")
-    public ResponseEntity<Object> removeUser(@PathVariable final String userId) {
+    public ResponseEntity<Void> removeUser(@PathVariable final String userId) {
         if(userId.isBlank()) {
             throw new InvalidInputException("userId can not be blank.");
         }

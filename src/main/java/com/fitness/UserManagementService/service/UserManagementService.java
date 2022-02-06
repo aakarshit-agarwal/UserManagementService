@@ -4,6 +4,8 @@ import com.fitness.UserManagementService.dao.UserDaoService;
 import com.fitness.UserManagementService.entity.User;
 import com.fitness.UserManagementService.entity.UserStatus;
 import com.fitness.UserManagementService.exception.UserDoesNotExistException;
+import com.fitness.UserManagementService.helper.ModelEntityConverter;
+import com.fitness.UserManagementService.model.CreateUserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +16,9 @@ public class UserManagementService {
     @Autowired
     private UserDaoService userDaoService;
 
-    public String createUser(final User user) {
-        userDaoService.saveUser(user);
-        return user.getUserId();
+    public String createUser(final CreateUserRequest createUserRequest) {
+        final User newUser = ModelEntityConverter.convertCreateUserRequestToUser(createUserRequest);
+        return userDaoService.saveUser(newUser).getUserId();
     }
 
     public User getUser(final String userId) {
