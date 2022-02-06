@@ -1,5 +1,7 @@
 spring:
   profiles: prod
+  zipkin:
+    enabled: true
 eureka:
   instance:
     preferIpAddress: true
