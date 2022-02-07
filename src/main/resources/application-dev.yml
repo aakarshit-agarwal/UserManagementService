@@ -1,7 +1,6 @@
 spring:
-  profiles: dev
   zipkin:
-    enabled: false
+    enabled: true
 eureka:
   client:
     registerWithEureka: false

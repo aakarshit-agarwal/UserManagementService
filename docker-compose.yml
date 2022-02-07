@@ -7,9 +7,9 @@ services:
     container_name: zipkin
     # Environment settings are defined here https://github.com/openzipkin/zipkin/blob/master/zipkin-server/README.md#environment-variables
     environment:
-      - STORAGE_TYPE=mysql
+      - STORAGE_TYPE=mem
       # Point the zipkin at the storage backend
-      - MYSQL_HOST=mysql
+#      - MYSQL_HOST=mysql
       # Uncomment to enable scribe
       # - SCRIBE_ENABLED=true
       # Uncomment to enable self-tracing
@@ -26,7 +26,7 @@ services:
   aaakarshit:
     image: user-management-service:local
     environment:
-      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_PROFILES_ACTIVE=dev
     build:
       context: ./
       dockerfile: Dockerfile

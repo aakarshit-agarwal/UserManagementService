@@ -1,5 +1,4 @@
 spring:
-  profiles: prod
   zipkin:
     enabled: true
 eureka:
