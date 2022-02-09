@@ -1,6 +1,9 @@
 spring:
   application:
     name: UserManagementService
+  zipkin:
+    base-url: http://host.docker.internal:9411/
+    enabled: false
   h2:
     console:
       enabled: true

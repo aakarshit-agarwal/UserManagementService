@@ -5,17 +5,6 @@ services:
   zipkin:
     image: openzipkin/zipkin
     container_name: zipkin
-    # Environment settings are defined here https://github.com/openzipkin/zipkin/blob/master/zipkin-server/README.md#environment-variables
-    environment:
-      - STORAGE_TYPE=mem
-      # Point the zipkin at the storage backend
-#      - MYSQL_HOST=mysql
-      # Uncomment to enable scribe
-      # - SCRIBE_ENABLED=true
-      # Uncomment to enable self-tracing
-      # - SELF_TRACING_ENABLED=true
-      # Uncomment to enable debug logging
-      # - JAVA_OPTS=-Dlogging.level.zipkin2=DEBUG
     ports:
       # Port used for the Zipkin UI and HTTP Api
       - 9411:9411
@@ -28,9 +17,10 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=dev
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile
     ports:
       - "9001:9001"
     depends_on:
-      - zipkin
+      zipkin:
+        condition: service_started
