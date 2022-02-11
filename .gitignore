@@ -1,6 +1,7 @@
 UserManagementServiceDb.mv.db
 HELP.md
 target/
+logs/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
