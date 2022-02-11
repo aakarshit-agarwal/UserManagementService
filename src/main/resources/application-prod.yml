@@ -4,6 +4,7 @@ spring:
       on-profile:
         - prod
   zipkin:
+    base-url: http://host.docker.internal:9411/
     enabled: true
 eureka:
   instance:

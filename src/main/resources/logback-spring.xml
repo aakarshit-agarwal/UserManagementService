@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="true">
+<configuration>
     <springProperty scope="context" name="springAppName" source="spring.application.name"/>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <property name="LOG_FILE" value="${BUILD_FOLDER:-build}/${springAppName}"/>

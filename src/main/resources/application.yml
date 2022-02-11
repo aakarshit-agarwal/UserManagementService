@@ -2,12 +2,10 @@ spring:
   zipkin:
     service:
       name: UserManagementService
-    base-url: http://localhost:9411/
     enabled: false
   h2:
     console:
-      enabled: true
-      path: /h2
+      enabled: false
   datasource:
     url: jdbc:h2:file:./UserManagementServiceDb
     username: sa
@@ -17,6 +15,5 @@ spring:
     hibernate:
       ddl-auto: update
     generate-ddl: true
-
 server:
   port: 9001
