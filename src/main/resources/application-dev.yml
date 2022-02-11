@@ -6,6 +6,10 @@ spring:
   zipkin:
     enabled: true
 eureka:
+  instance:
+    preferIpAddress: true
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://host.docker.internal:8761/eureka
